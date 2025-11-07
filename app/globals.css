@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  .animate-delay-1000 {
+    animation-delay: 1000ms;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-impact-orange to-orange-600;
+  }
+
+  .bg-gradient-impact {
+    @apply bg-gradient-to-br from-impact-navy via-blue-900 to-impact-navy;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e67e22;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d35400;
+}
+
+/* Selection */
+::selection {
+  background-color: #e67e22;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #e67e22;
+  color: white;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid #e67e22;
+  outline-offset: 2px;
+}
+
+/* Business Growth Animations */
+@keyframes growth-rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes success-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 25px rgba(230, 126, 34, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(230, 126, 34, 0.3);
+  }
+}
+
+@keyframes chart-climb {
+  0% {
+    transform: translateY(10px) translateX(-5px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-10px) translateX(5px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(10px) translateX(-5px) rotate(-2deg);
+  }
+}
+
+@keyframes expand-impact {
+  0% {
+    transform: rotate(6deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(8deg) scale(1.1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: rotate(6deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes contract-impact {
+  0% {
+    transform: rotate(-6deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(-8deg) scale(0.95);
+    opacity: 0.9;
+  }
+  100% {
+    transform: rotate(-6deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-growth-rise {
+  animation: growth-rise 4s ease-in-out infinite;
+}
+
+.animate-success-pulse {
+  animation: success-pulse 3s ease-in-out infinite;
+}
+
+.animate-chart-climb {
+  animation: chart-climb 5s ease-in-out infinite;
+}
+
+.animate-expand-impact {
+  animation: expand-impact 6s ease-in-out infinite;
+}
+
+.animate-contract-impact {
+  animation: contract-impact 6s ease-in-out infinite 0.5s;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}

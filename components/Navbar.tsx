@@ -1,0 +1,86 @@
+'use client';
+
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
+export function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navItems = [
+    { label: 'Home', href: '#home' },
+    { label: 'Services', href: '#services' },
+    { label: 'About', href: '#about' },
+    { label: 'Contact', href: '#contact' },
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
+            <div className="flex items-end space-x-1">
+              <div className="w-2 h-3 bg-impact-orange rounded-sm"></div>
+              <div className="w-2 h-9 bg-impact-orange rounded-sm"></div>
+              <div className="w-2 h-12 bg-impact-orange rounded-sm"></div>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold leading-tight">
+                <span className="text-impact-navy">i</span>
+                <span className="text-impact-orange">MPACT</span>
+              </span>
+              <span className="text-lg font-bold text-impact-navy ">Business Solutions</span>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-impact-navy hover:text-impact-orange transition-colors duration-300 font-medium"
+              >
+                {item.label}
+              </a>
+            ))}
+            <button className="bg-impact-orange text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              Get Started
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-impact-navy"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            isMobileMenuOpen ? 'max-h-64 pb-4' : 'max-h-0'
+          }`}
+        >
+          <div className="flex flex-col space-y-4">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-impact-navy hover:text-impact-orange transition-colors duration-300 font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <button className="bg-impact-orange text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all duration-300 w-full">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
