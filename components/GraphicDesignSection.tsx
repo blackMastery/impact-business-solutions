@@ -150,10 +150,10 @@ export function GraphicDesignSection() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <button className="bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center space-x-2">
+          <a href="#contact" className="bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center space-x-2">
             <span>Start Your Brand Journey</span>
             <Sparkles className="w-5 h-5" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

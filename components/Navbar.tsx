@@ -37,9 +37,9 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
-            <button className="bg-impact-orange text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <a href="#contact" className="bg-impact-orange text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
               Get Started
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,9 +68,9 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
-            <button className="bg-impact-orange text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all duration-300 w-full">
+            <a href="#contact" className="bg-impact-orange text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all duration-300 w-full text-center block" onClick={() => setIsMobileMenuOpen(false)}>
               Get Started
-            </button>
+            </a>
           </div>
         </div>
       </div>

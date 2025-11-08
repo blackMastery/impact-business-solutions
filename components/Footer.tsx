@@ -40,9 +40,9 @@ export function Footer() {
             {/* Logo */}
             <a href="#home" className="flex items-center">
               <img 
-                src="/white-logo.jpeg" 
+                src="/black-logo.jpeg" 
                 alt="IMPACT Business Solutions" 
-                className="h-12 w-auto object-contain"
+                className="h-12 w-12 object-contain rounded-full"
               />
             </a>
 
