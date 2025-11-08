@@ -21,18 +21,24 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/black-logo.jpeg',
+        url: 'https://impactbusiness.gy/black-logo.jpeg',
         width: 1200,
         height: 630,
         alt: 'Impact Business Solutions - Marketing & Business Development',
+        type: 'image/jpeg',
       },
     ],
+    emails: ['marketingimpact20@gmail.com'],
+    phoneNumbers: ['+592-679-2338'],
+    countryName: 'Guyana',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Impact Business Solutions | Marketing & Business Development',
     description: 'A boutique marketing and business development agency in Guyana. Making an Impact, One Solution at a Time.',
-    images: ['/black-logo.jpeg'],
+    images: ['https://impactbusiness.gy/black-logo.jpeg'],
+    creator: '@impactbusinesssolutions',
+    site: '@impactbusinesssolutions',
   },
   robots: {
     index: true,
