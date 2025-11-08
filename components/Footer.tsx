@@ -38,17 +38,13 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
             {/* Logo */}
-            <div className="flex items-center space-x-2">
-              <div className="flex items-end space-x-1">
-                <div className="w-2 h-6 bg-impact-orange rounded-sm"></div>
-                <div className="w-2 h-8 bg-impact-orange rounded-sm"></div>
-                <div className="w-2 h-10 bg-impact-orange rounded-sm"></div>
-              </div>
-              <span className="text-2xl font-bold">
-                <span className="text-white">i</span>
-                <span className="text-impact-orange">MPACT</span>
-              </span>
-            </div>
+            <a href="#home" className="flex items-center">
+              <img 
+                src="/white-logo.jpeg" 
+                alt="IMPACT Business Solutions" 
+                className="h-12 w-auto object-contain"
+              />
+            </a>
 
             <p className="text-gray-400 leading-relaxed">
               Making an Impact, One Solution at a Time. A boutique marketing and business development agency empowering businesses to grow through innovation and excellence.

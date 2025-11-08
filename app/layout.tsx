@@ -48,6 +48,11 @@ export const metadata: Metadata = {
   viewport: 'width=device-width, initial-scale=1',
   themeColor: '#1e3a8a',
   category: 'business',
+  icons: {
+    icon: '/black-logo.jpeg',
+    shortcut: '/black-logo.jpeg',
+    apple: '/black-logo.jpeg',
+  },
 }
 
 export default function RootLayout({

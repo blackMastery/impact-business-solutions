@@ -18,7 +18,7 @@ export default function LandingPage() {
     name: 'Impact Business Solutions',
     alternateName: 'iMPACT Business Solutions',
     url: 'https://impactbusiness.gy',
-    logo: 'https://impactbusiness.gy/logo.png',
+    logo: 'https://impactbusiness.gy/white-logo.jpeg',
     description: 'A boutique marketing and business development agency in Guyana, dedicated to fueling business growth through innovation and excellence.',
     foundingDate: '2021',
     contactPoint: {
@@ -60,7 +60,7 @@ export default function LandingPage() {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'Impact Business Solutions',
-    image: 'https://impactbusiness.gy/logo.png',
+    image: 'https://impactbusiness.gy/white-logo.jpeg',
     '@id': 'https://impactbusiness.gy',
     url: 'https://impactbusiness.gy',
     telephone: '+592-679-2338',
@@ -109,7 +109,7 @@ export default function LandingPage() {
       <SocialMediaSection />
       <GraphicDesignSection />
       <About />
-      <Team />
+      
       <Stats />
       <Testimonials />
       <CTA />

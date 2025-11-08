@@ -18,20 +18,13 @@ export function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="flex items-end space-x-1">
-              <div className="w-2 h-3 bg-impact-orange rounded-sm"></div>
-              <div className="w-2 h-9 bg-impact-orange rounded-sm"></div>
-              <div className="w-2 h-12 bg-impact-orange rounded-sm"></div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold leading-tight">
-                <span className="text-impact-navy">i</span>
-                <span className="text-impact-orange">MPACT</span>
-              </span>
-              <span className="text-lg font-bold text-impact-navy ">Business Solutions</span>
-            </div>
-          </div>
+          <a href="#home" className="flex items-center">
+            <img 
+              src="/white-logo.jpeg" 
+              alt="IMPACT Business Solutions" 
+              className="h-12 w-auto object-contain"
+            />
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
