@@ -13,7 +13,7 @@ export function ComplianceSection() {
     { name: 'GRA Compliance', price: '$15,000' },
     { name: 'NIS Compliance', price: '$15,000' },
     { name: 'Business Registration', price: '$10,000' },
-    // { name: 'Company Registration' },
+    { name: 'Company Registration', price: '$120,000' },
   ];
 
   return (
