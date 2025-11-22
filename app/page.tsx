@@ -107,12 +107,13 @@ export default function LandingPage() {
       />
       <Navbar />
       <Hero />
+      <About />
+
       <Services />
+      <SocialMediaSection />
       <ComplianceSection />
       <CompanyIncorporationSection />
-      <SocialMediaSection />
       <GraphicDesignSection />
-      <About />
       
       <Stats />
       <Testimonials />
