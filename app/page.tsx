@@ -2,6 +2,7 @@ import React from 'react';
 import { Hero } from '../components/Hero';
 import { Services } from '../components/Services';
 import { ComplianceSection } from '../components/ComplianceSection';
+import { CompanyIncorporationSection } from '../components/CompanyIncorporationSection';
 import { SocialMediaSection } from '../components/SocialMediaSection';
 import { GraphicDesignSection } from '../components/GraphicDesignSection';
 import { About } from '../components/About';
@@ -108,6 +109,7 @@ export default function LandingPage() {
       <Hero />
       <Services />
       <ComplianceSection />
+      <CompanyIncorporationSection />
       <SocialMediaSection />
       <GraphicDesignSection />
       <About />
