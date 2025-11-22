@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Music2, TrendingUp, Users, Heart, MessageCircle } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Music2, TrendingUp, Users, Heart, MessageCircle, Check } from 'lucide-react';
 
 export function SocialMediaSection() {
   const platforms = [
@@ -56,6 +56,48 @@ export function SocialMediaSection() {
       title: 'Elevate Your Presence',
       description: 'Transform your online identity into a vibrant community'
     },
+  ];
+
+  const packages = [
+    {
+      name: 'Standard',
+      price: '$35,000',
+      features: [
+        '12 Posts',
+        'Tailored Content Strategy',
+        'Posting & Management of Page',
+        'Message & Comments Monitoring',
+        '1 Video'
+      ],
+      highlight: false
+    },
+    {
+      name: 'Premium',
+      price: '$50,000',
+      features: [
+        '20 Posts',
+        'A Tailored Content Strategy',
+        'Posting & Management of Page',
+        'Message & Comments Monitoring',
+        '2 Videos',
+        '1 FREE Sponsor Ad'
+      ],
+      highlight: true
+    },
+    {
+      name: 'Executive',
+      price: '$75,000',
+      features: [
+        '35 Posts',
+        'A Tailored Content Strategy',
+        'Posting & Management of Page',
+        'Message & Comments Monitoring',
+        '2 Videos',
+        '2 FREE Sponsor Ads',
+        'Company Onsite Day'
+      ],
+      highlight: false
+    }
   ];
 
   return (
@@ -117,9 +159,51 @@ export function SocialMediaSection() {
           </div>
         </div>
 
+        {/* Package Options */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">Package Options</h3>
+            <p className="text-gray-300 text-lg">Choose the perfect plan for your social media needs</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {packages.map((pkg, index) => (
+              <div
+                key={index}
+                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/15 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl relative ${
+                  pkg.highlight ? 'ring-2 ring-impact-orange scale-105 md:scale-110' : ''
+                } animate-slide-in-up`}
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                {pkg.highlight && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-impact-orange text-white px-4 py-1 rounded-full text-sm font-semibold">
+                      Popular
+                    </span>
+                  </div>
+                )}
+                
+                <div className="text-center mb-6">
+                  <h4 className="text-2xl font-bold mb-2">{pkg.name}</h4>
+                  <div className="text-4xl font-bold text-impact-orange mb-4">{pkg.price}</div>
+                </div>
+                
+                <ul className="space-y-4">
+                  {pkg.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start space-x-3">
+                      <Check className="w-5 h-5 text-impact-orange flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-200">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="text-center mt-16">
-          <a href="#contact" className="bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center space-x-2">
+          <a href="https://wa.me/5926792338" target="_blank" rel="noopener noreferrer" className="bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center space-x-2">
             <span>Start Growing Your Social Presence</span>
             <TrendingUp className="w-5 h-5" />
           </a>

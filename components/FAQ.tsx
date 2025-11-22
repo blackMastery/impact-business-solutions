@@ -83,7 +83,9 @@ export function FAQ() {
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-4">Still have questions?</p>
           <a
-            href="#contact"
+            href="https://wa.me/5926792338"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-impact-orange text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
           >
             Contact Us

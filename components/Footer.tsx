@@ -56,10 +56,10 @@ export function Footer() {
                 <MapPin className="w-5 h-5 text-impact-orange flex-shrink-0" />
                 <span>Guyana</span>
               </div>
-              <div className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300">
+              <a href="https://wa.me/5926792338" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300">
                 <Phone className="w-5 h-5 text-impact-orange flex-shrink-0" />
                 <span>+592 679 2338</span>
-              </div>
+              </a>
               <div className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300">
                 <Mail className="w-5 h-5 text-impact-orange flex-shrink-0" />
                 <span>marketingimpact20@gmail.com</span>

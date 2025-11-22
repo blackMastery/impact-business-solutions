@@ -9,6 +9,7 @@ interface Service {
   description: string;
   color: string;
   items?: string[];
+  itemPrices?: Record<string, string>;
 }
 
 export function Services() {
@@ -44,9 +45,13 @@ export function Services() {
     {
       icon: <Building2 className="w-8 h-8" />,
       title: 'Compliance & Registration',
-      description: 'GRA and NIS compliance services to ensure your business meets all legal requirements.',
+      description: 'GRA and  services to ensure your business meets all legal requirements.',
       color: 'from-green-500 to-emerald-500',
       items: ['GRA Compliance', 'NIS Compliance', 'Business Registration', 'Company Registration'],
+      itemPrices: {
+        'GRA Compliance': '$15,000',
+        'NIS Compliance': '$15,000',
+      },
     },
     {
       icon: <Users className="w-8 h-8" />,
@@ -99,9 +104,25 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       <h3 className="text-2xl font-bold text-impact-navy mb-3 group-hover:text-impact-orange transition-colors duration-300">
         {service.title}
       </h3>
-      <p className="text-gray-600 leading-relaxed">
+      <p className="text-gray-600 leading-relaxed mb-4">
         {service.description}
       </p>
+
+      {/* Items List with Prices */}
+      {service.items && service.items.length > 0 && (
+        <ul className="space-y-2 mt-4">
+          {service.items.map((item, itemIndex) => (
+            <li key={itemIndex} className="flex items-center justify-between text-sm">
+              <span className="text-gray-700">{item}</span>
+              {service.itemPrices && service.itemPrices[item] && (
+                <span className="font-semibold text-impact-orange ml-2">
+                  {service.itemPrices[item]}
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
 
       {/* Hover Effect Line */}
       <div className="mt-6 h-1 w-0 group-hover:w-full bg-gradient-to-r from-impact-orange to-orange-600 transition-all duration-500 rounded-full"></div>
