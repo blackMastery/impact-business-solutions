@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://impact-business-solutions.vercel.app/black-logo.jpeg',
+        url: 'https://impact-business-solutions.vercel.app/white-logo.png',
         width: 1200,
         height: 630,
         alt: 'Impact Business Solutions - Marketing & Business Development',
-        type: 'image/jpeg',
+        type: 'image/png',
       },
     ],
     emails: ['marketingimpact20@gmail.com'],
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Impact Business Solutions | Marketing & Business Development',
     description: 'A boutique marketing and business development agency in Guyana. Making an Impact, One Solution at a Time.',
-    images: ['https://impact-business-solutions.vercel.app/black-logo.jpeg'],
+    images: ['https://impact-business-solutions.vercel.app/white-logo.png'],
     creator: '@impactbusinesssolutions',
     site: '@impactbusinesssolutions',
   },
@@ -55,9 +55,9 @@ export const metadata: Metadata = {
   themeColor: '#1e3a8a',
   category: 'business',
   icons: {
-    icon: '/black-logo.jpeg',
-    shortcut: '/black-logo.jpeg',
-    apple: '/black-logo.jpeg',
+    icon: '/white-logo.png',
+    shortcut: '/white-logo.png',
+    apple: '/white-logo.png',
   },
 }
 

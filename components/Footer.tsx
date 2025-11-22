@@ -40,7 +40,7 @@ export function Footer() {
             {/* Logo */}
             <a href="#home" className="flex items-center">
               <img 
-                src="/black-logo.jpeg" 
+                src="/white-logo.png" 
                 alt="IMPACT Business Solutions" 
                 className="h-12 w-12 object-contain rounded-full"
               />
