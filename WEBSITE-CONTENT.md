@@ -9,9 +9,11 @@ This document contains all text content from the Impact Business Solutions landi
 ### Navigation Items
 - Home
 - Services
+- Compliance & Registration
+- Company Incorporation
 - About
 - Contact
-- Get Started (CTA button)
+- Get Started (CTA button - WhatsApp)
 
 ---
 
@@ -27,8 +29,8 @@ This document contains all text content from the Impact Business Solutions landi
 A boutique marketing and business development agency, dedicated to fueling business growth through innovation and excellence.
 
 ### Call-to-Action Buttons
-- **Get Started**
-- **Learn More**
+- **Get Started** (WhatsApp: +592 679 2338)
+- **Learn More** (WhatsApp: +592 679 2338)
 
 ### Statistics
 - **4+** Years Since 2021
@@ -92,10 +94,10 @@ Experience a full spectrum of services for administrative, marketing, and manage
 **Description:** GRA and services to ensure your business meets all legal requirements.
 
 **Services Include:**
-- GRA Compliance
-- NIS Compliance
-- Business Registration
-- Company Registration
+- GRA Compliance - **$15,000**
+- NIS Compliance - **$15,000**
+- Business Registration - **$10,000**
+- Company Registration - **$120,000**
 
 ### Service 6: Strategic Consulting
 **Description:** Customized strategies and dedicated support for sustained business success.
@@ -167,7 +169,7 @@ Transform your online identity into a vibrant community
 - Company Onsite Day
 
 ### Call-to-Action
-**Start Growing Your Social Presence**
+**Start Growing Your Social Presence** (WhatsApp: +592 679 2338)
 
 ---
 
@@ -219,7 +221,58 @@ Designs that captivate and engage your audience
 Stand out with distinctive visual branding
 
 ### Call-to-Action
-**Start Your Brand Journey**
+**Start Your Brand Journey** (WhatsApp: +592 679 2338)
+
+---
+
+## Compliance & Registration Section
+
+### Section Header
+**Compliance & Registration**
+
+### Description
+GRA and services to ensure your business meets all legal requirements.
+
+### Services with Pricing
+
+#### GRA Compliance
+**Price:** $15,000
+
+#### NIS Compliance
+**Price:** $15,000
+
+#### Business Registration
+**Price:** $10,000
+
+#### Company Registration
+**Price:** $120,000
+
+---
+
+## Company Incorporation Service Section
+
+### Section Header
+**Company Incorporation Service**
+
+### Description
+We assist in the legal process of forming a company
+
+### What's Included
+
+#### Name reservation
+Reserve your company name with the relevant authorities
+
+#### Document drafting
+Professional drafting of all required incorporation documents
+
+#### Filing with government agencies
+Complete filing and submission with all necessary government agencies
+
+### Service Price
+**$260,000** (One-time fee)
+
+### Call-to-Action
+**Get Started Today** (WhatsApp: +592 679 2338)
 
 ---
 
@@ -370,10 +423,13 @@ From event management to digital marketing, Impact has been our trusted partner.
 ### Description
 Ready to transform your business? Get in touch with our team to discuss your project and discover how we can help you achieve your goals.
 
+### WhatsApp CTA Button
+**Contact Us on WhatsApp** (Links to WhatsApp: +592 679 2338)
+
 ### Contact Information
 
-#### Phone
-+592 679 2338
+#### Phone / WhatsApp
++592 679 2338 (Clickable WhatsApp link)
 
 #### Email
 marketingimpact20@gmail.com
@@ -397,7 +453,7 @@ Making an Impact, One Solution at a Time. A boutique marketing and business deve
 
 ### Contact Information
 - **Location:** Guyana
-- **Phone:** +592 679 2338
+- **Phone/WhatsApp:** +592 679 2338 (Clickable WhatsApp link)
 - **Email:** marketingimpact20@gmail.com
 
 ### Social Media
@@ -468,7 +524,7 @@ Find answers to common questions about our services and process
 **A:** Yes, we take confidentiality very seriously. We're happy to sign NDAs and have strict internal policies to protect all client information and intellectual property. Your business data and project details are always kept secure and confidential.
 
 ### CTA
-Still have questions? **Contact Us**
+Still have questions? **Contact Us** (WhatsApp: +592 679 2338)
 
 ---
 

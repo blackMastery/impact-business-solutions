@@ -12,6 +12,7 @@ import { Testimonials } from '../components/Testimonials';
 import { CTA } from '../components/CTA';
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
+import { Chatbot } from '../components/Chatbot';
 
 export default function LandingPage() {
   const organizationSchema = {
@@ -119,6 +120,7 @@ export default function LandingPage() {
       <Testimonials />
       <CTA />
       <Footer />
+      <Chatbot />
     </div>
   );
 }
