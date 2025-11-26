@@ -23,6 +23,14 @@ interface Message {
   timestamp: Date;
 }
 
+const suggestedQuestions = [
+  "What services do you offer?",
+  "How much does social media management cost?",
+  "Tell me about company incorporation",
+  "What is your contact information?",
+  "How do I get started?"
+];
+
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -35,6 +43,7 @@ export function Chatbot() {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -52,18 +61,20 @@ export function Chatbot() {
     }
   }, [isOpen]);
 
-  const sendMessage = async () => {
-    if (!input.trim() || isLoading) return;
+  const sendMessage = async (messageText?: string, retryCount = 0) => {
+    const messageToSend = messageText || input.trim();
+    if (!messageToSend || isLoading) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
       role: 'user',
-      content: input.trim(),
+      content: messageToSend,
       timestamp: new Date()
     };
 
     setMessages((prev) => [...prev, userMessage]);
-    setInput('');
+    if (!messageText) setInput('');
+    setShowSuggestions(false);
     setIsLoading(true);
 
     try {
@@ -76,10 +87,19 @@ export function Chatbot() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to get response');
+        // Handle rate limiting
+        if (response.status === 429) {
+          throw new Error('Rate limit exceeded. Please wait a moment and try again.');
+        }
+        throw new Error(`Failed to get response: ${response.status}`);
       }
 
       const data = await response.json();
+      
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
@@ -88,12 +108,23 @@ export function Chatbot() {
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending message:', error);
+      
+      // Retry logic with exponential backoff
+      if (retryCount < 2 && (error.message?.includes('rate limit') || error.message?.includes('Failed to get response'))) {
+        const delay = 1000 * Math.pow(2, retryCount);
+        await new Promise(resolve => setTimeout(resolve, delay));
+        return sendMessage(messageToSend, retryCount + 1);
+      }
+
+      // Show user-friendly error message
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: 'I apologize, but I encountered an error. Please contact us directly on WhatsApp at +592 679 2338 or email us at marketingimpact20@gmail.com.',
+        content: error.message?.includes('Rate limit') 
+          ? 'I\'m receiving too many requests right now. Please wait a moment and try again, or contact us directly on WhatsApp at +592 679 2338.'
+          : 'I apologize, but I encountered an error. Please try again or contact us directly on WhatsApp at +592 679 2338 or email us at marketingimpact20@gmail.com.',
         timestamp: new Date()
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -102,12 +133,21 @@ export function Chatbot() {
     }
   };
 
+  const handleSuggestionClick = (question: string) => {
+    sendMessage(question);
+  };
+
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
     }
   };
+
+  // Show suggestions only when there are 1-2 messages (initial greeting + maybe one user message)
+  useEffect(() => {
+    setShowSuggestions(messages.length <= 2 && !isLoading);
+  }, [messages.length, isLoading]);
 
   return (
     <>
@@ -148,6 +188,23 @@ export function Chatbot() {
 
           {/* Messages */}
           <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+            {showSuggestions && messages.length <= 2 && (
+              <div className="mb-4">
+                <p className="text-xs text-gray-500 mb-2">Suggested questions:</p>
+                <div className="flex flex-wrap gap-2">
+                  {suggestedQuestions.map((question, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleSuggestionClick(question)}
+                      disabled={isLoading}
+                      className="text-xs px-3 py-1.5 bg-white border border-gray-200 hover:bg-gray-50 hover:border-[#1e3a5f] rounded-full text-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {question}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -202,7 +259,7 @@ export function Chatbot() {
                 disabled={isLoading}
               />
               <button
-                onClick={sendMessage}
+                onClick={() => sendMessage()}
                 disabled={!input.trim() || isLoading}
                 className="bg-[#1e3a5f] text-white p-2 rounded-lg hover:bg-[#1e3a8a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Send message"
