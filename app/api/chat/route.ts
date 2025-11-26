@@ -231,9 +231,9 @@ async function runAndApplyGuardrails(
   const guardrails = Array.isArray(config?.guardrails) ? config.guardrails : [];
   const context = getGuardrailContext(client);
   const results = await runGuardrails(inputText, config, context, true);
-  const shouldMaskPII = guardrails.find(
-    (g) => (g?.name === "Contains PII") && g?.config && g.config.block === false
-  );
+  const shouldMaskPII = guardrails.find((g: any) => {
+    return (g?.name === "Contains PII") && g?.config && g.config.block === false;
+  });
   if (shouldMaskPII) {
     const piiOnly = { guardrails: [shouldMaskPII] };
     await scrubConversationHistory(history, piiOnly, context);
@@ -455,10 +455,10 @@ Always guide users to contact us directly for booking.`,
   }
 });
 
-type WorkflowInput = { input_as_text: string };
+export type WorkflowInput = { input_as_text: string };
 
 // Main code entrypoint with retry logic
-async function processChatRequest(workflow: WorkflowInput, retryCount = 0): Promise<any> {
+export async function processChatRequest(workflow: WorkflowInput, retryCount = 0): Promise<any> {
   const startTime = Date.now();
   const client = getClient();
 
