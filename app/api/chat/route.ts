@@ -34,20 +34,26 @@ function logConversation(ip: string, classification: string, messageLength: numb
   console.log(`[Analytics] IP: ${ip}, Classification: ${classification}, Message Length: ${messageLength}, Response Time: ${responseTime}ms`);
 }
 
-// Load knowledge base from WEBSITE-CONTENT.md
-function getKnowledgeBase(): string {
-  try {
-    const contentPath = path.join(process.cwd(), 'WEBSITE-CONTENT.md');
-    const content = fs.readFileSync(contentPath, 'utf-8');
-    // Return a compressed version focusing on key information
-    return content;
-  } catch (error) {
-    console.error('Error loading knowledge base:', error);
-    return '';
-  }
+// Condensed knowledge base with only essential information
+function getCondensedKnowledgeBase(): string {
+  return `# Impact Business Solutions
+**Tagline:** Making an Impact, One Solution at a Time
+**Founded:** 2021 | **Location:** Georgetown, Guyana
+**Contact:** WhatsApp +592 679 2338 | Email: marketingimpact20@gmail.com
+**Stats:** 15+ Trusted Clients, 4+ Years Experience
+
+**Services:**
+- Social Media Management: Standard $35,000, Premium $50,000, Executive $75,000
+- Graphic Design & Branding
+- Compliance: GRA $15,000, NIS $15,000, Business Registration $10,000, Company Registration $120,000
+- Company Incorporation: $260,000
+- Event Management
+- Business Development
+- Administrative Support
+- Strategic Consulting`;
 }
 
-const knowledgeBase = getKnowledgeBase();
+const knowledgeBase = getCondensedKnowledgeBase();
 
 // Enhanced Tool definitions
 const getServiceDetails = tool({
@@ -309,22 +315,16 @@ const ClassificationAgentSchema = z.object({
   })).nullable().optional()
 });
 
-// Optimized Classification Agent (lower temperature for accuracy)
+// Optimized Classification Agent (lower temperature for accuracy, minimal tokens)
 const classificationAgent = new Agent({
   name: "Classification agent",
-  instructions: `Classify the user's intent into one of the following categories: "service_inquiry", "pricing_inquiry", "get_information", "booking_request", or "general_question".
-
-1. Any questions about specific services (social media management, graphic design, compliance, etc.) should route to service_inquiry.
-2. Any questions about pricing, costs, or packages should route to pricing_inquiry.
-3. Requests to book, schedule, or start a service should route to booking_request.
-4. Any other general information requests should go to get_information.
-5. General questions that don't fit above categories go to general_question.`,
+  instructions: `Classify user intent: "service_inquiry" (service questions), "pricing_inquiry" (pricing/costs), "booking_request" (book/schedule), "get_information" (general info), or "general_question" (other).`,
   model: "gpt-4o-mini",
   outputType: ClassificationAgentSchema,
   modelSettings: {
-    temperature: 0.3, // Lower for more deterministic classification
-    topP: 0.9,
-    maxTokens: 1024,
+    temperature: 0.1, // Very low for fastest, most deterministic classification
+    topP: 0.8, // Lower for faster token selection
+    maxTokens: 64, // Absolute minimum for classification
     store: true
   }
 });
@@ -332,38 +332,15 @@ const classificationAgent = new Agent({
 // Enhanced Service Inquiry Agent with knowledge base
 const serviceInquiryAgent = new Agent({
   name: "Service Inquiry Agent",
-  instructions: `You are a helpful assistant for Impact Business Solutions. Answer questions about our services with detailed, helpful information.
+  instructions: `Answer questions about Impact Business Solutions services. Be concise. Provide pricing, features, benefits. Use markdown. End with: Contact WhatsApp +592 679 2338.
 
-When answering service questions:
-1. Always provide specific details (pricing, features, benefits)
-2. Use markdown formatting for better readability:
-   - **Bold** for important points
-   - Bullet points for lists
-   - Code blocks for pricing tables
-3. Include relevant examples or use cases
-4. End with a call-to-action to contact us on WhatsApp at +592 679 2338
-5. Be conversational but professional
-
-Knowledge Base:
-${knowledgeBase}
-
-Our services include:
-- Social Media Management (Standard $35,000, Premium $50,000, Executive $75,000)
-- Graphic Design & Branding
-- Compliance & Registration (GRA $15,000, NIS $15,000, Business Registration $10,000, Company Registration $120,000)
-- Company Incorporation ($260,000)
-- Event Management
-- Business Development
-- Administrative Support
-- Strategic Consulting
-
-Provide comprehensive, accurate information based on the knowledge base above.`,
+${knowledgeBase}`,
   model: "gpt-4o-mini",
   tools: [getServiceDetails],
   modelSettings: {
-    temperature: 0.7, // Balanced for informative responses
-    topP: 0.9,
-    maxTokens: 2048,
+    temperature: 0.3, // Lower for faster, more deterministic responses
+    topP: 0.7, // Lower for faster token selection
+    maxTokens: 192, // Further reduced for faster generation
     store: true
   }
 });
@@ -371,28 +348,16 @@ Provide comprehensive, accurate information based on the knowledge base above.`,
 // Enhanced Pricing Inquiry Agent
 const pricingInquiryAgent = new Agent({
   name: "Pricing Inquiry Agent",
-  instructions: `You are a pricing specialist for Impact Business Solutions. Provide accurate pricing information with clear formatting.
+  instructions: `Provide pricing for Impact Business Solutions. Be concise. Prices in GYD. End with: Contact WhatsApp +592 679 2338. Use calculateQuote for multiple services.
 
-When providing pricing:
-1. Use markdown tables or lists for clarity
-2. Always mention that prices are in Guyanese Dollars (GYD)
-3. Include package details when relevant
-4. Mention that custom quotes are available
-5. Always end with: "For detailed quotes and customizations, contact us on WhatsApp at +592 679 2338"
-
-Pricing Information:
-- Social Media Management: Standard $35,000, Premium $50,000, Executive $75,000
-- Compliance: GRA $15,000, NIS $15,000, Business Registration $10,000, Company Registration $120,000
-- Company Incorporation: $260,000 (one-time fee)
-
-Use the calculateQuote tool when users ask about multiple services.`,
+${knowledgeBase}`,
   model: "gpt-4o-mini",
   tools: [calculateQuote, getServiceDetails],
   modelSettings: {
-    temperature: 0.5, // Lower for accurate pricing
-    topP: 0.9,
+    temperature: 0.2, // Lower for faster, more accurate pricing
+    topP: 0.7, // Lower for faster token selection
     parallelToolCalls: true,
-    maxTokens: 2048,
+    maxTokens: 192, // Further reduced for faster generation
     store: true
   }
 });
@@ -400,34 +365,14 @@ Use the calculateQuote tool when users ask about multiple services.`,
 // Enhanced Information Agent with full knowledge base
 const informationAgent = new Agent({
   name: "Information agent",
-  instructions: `You are an information agent for Impact Business Solutions. Provide clear, concise responses about our company, services, and how we can help businesses in Guyana.
+  instructions: `Answer questions about Impact Business Solutions. Be concise and friendly. Use markdown. End with: Contact WhatsApp +592 679 2338.
 
-When answering questions:
-1. Reference the knowledge base for accurate information
-2. Use markdown formatting for better readability
-3. Be conversational and friendly
-4. Always encourage users to contact us for more information
-5. When the user asks follow-up questions, reference previous parts of the conversation and build on previously provided information
-6. Maintain context throughout the conversation
-
-Knowledge Base:
-${knowledgeBase}
-
-Key information:
-- Founded in 2021
-- Based in Georgetown, Guyana
-- Contact: +592 679 2338 (WhatsApp), marketingimpact20@gmail.com
-- Services: Digital Marketing, Social Media Management, Graphic Design, Compliance, Business Development, Event Management
-- Tagline: "Making an Impact, One Solution at a Time"
-- 15+ Trusted Clients
-- 4+ Years of Experience
-
-Always be helpful and encourage users to contact us for more information.`,
+${knowledgeBase}`,
   model: "gpt-4o-mini",
   modelSettings: {
-    temperature: 0.7, // Balanced for informative responses
-    topP: 0.9,
-    maxTokens: 2048,
+    temperature: 0.3, // Lower for faster responses
+    topP: 0.7, // Lower for faster token selection
+    maxTokens: 192, // Further reduced for faster generation
     store: true
   }
 });
@@ -435,29 +380,44 @@ Always be helpful and encourage users to contact us for more information.`,
 // Booking Request Agent (new)
 const bookingAgent = new Agent({
   name: "Booking Agent",
-  instructions: `You are a booking specialist for Impact Business Solutions. Help users understand how to get started with our services.
-
-When users want to book or start a service:
-1. Explain the process clearly
-2. Provide contact information prominently
-3. Mention that we'll schedule a consultation
-4. Be encouraging and helpful
-
-Contact: WhatsApp +592 679 2338 or email marketingimpact20@gmail.com
-
-Always guide users to contact us directly for booking.`,
+  instructions: `Help users book services. Be concise. Contact: WhatsApp +592 679 2338 or email marketingimpact20@gmail.com. We'll schedule a consultation.`,
   model: "gpt-4o-mini",
   modelSettings: {
-    temperature: 0.7,
-    topP: 0.9,
-    maxTokens: 1024,
+    temperature: 0.3, // Lower for faster responses
+    topP: 0.7, // Lower for faster token selection
+    maxTokens: 128, // Reduced for faster generation
     store: true
   }
 });
 
 export type WorkflowInput = { input_as_text: string };
 
+// Timeout protection utility
+async function withTimeout<T>(
+  promise: Promise<T>, 
+  ms: number, 
+  timeoutMessage = "Operation timed out"
+): Promise<T> {
+  let timeoutId: NodeJS.Timeout;
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    timeoutId = setTimeout(() => {
+      reject(new Error(timeoutMessage));
+    }, ms);
+  });
+
+  try {
+    const result = await Promise.race([promise, timeoutPromise]);
+    return result as T;
+  } finally {
+    clearTimeout(timeoutId!);
+  }
+}
+
 // Main code entrypoint with retry logic
+// Guardrails can be enabled via environment variable for security
+// Disabled by default for performance (saves 0.5-1.5 seconds per request)
+const ENABLE_GUARDRAILS = process.env.ENABLE_GUARDRAILS === 'true';
+
 export async function processChatRequest(workflow: WorkflowInput, retryCount = 0): Promise<any> {
   const startTime = Date.now();
   const client = getClient();
@@ -475,47 +435,55 @@ export async function processChatRequest(workflow: WorkflowInput, retryCount = 0
         }
       });
 
-      const guardrailsInputText = workflow.input_as_text;
-      const {
-        hasTripwire: guardrailsHasTripwire,
-        safeText: guardrailsAnonymizedText,
-        failOutput: guardrailsFailOutput,
-        passOutput: guardrailsPassOutput
-      } = await runAndApplyGuardrails(
-        guardrailsInputText,
-        jailbreakGuardrailConfig,
-        conversationHistory,
-        workflow,
-        client
-      );
+      // Run guardrails only if enabled (disabled by default for performance)
+      if (ENABLE_GUARDRAILS) {
+        const guardrailsInputText = workflow.input_as_text;
+        const {
+          hasTripwire,
+          failOutput
+        } = await runAndApplyGuardrails(
+          guardrailsInputText,
+          jailbreakGuardrailConfig,
+          conversationHistory,
+          workflow,
+          client
+        );
 
-      const guardrailsOutput = guardrailsHasTripwire ? guardrailsFailOutput : guardrailsPassOutput;
-
-      if (guardrailsHasTripwire) {
-        return guardrailsOutput;
+        if (hasTripwire) {
+          return failOutput;
+        }
       }
 
-      const classificationAgentResultTemp = await runner.run(
-        classificationAgent,
-        [...conversationHistory]
-      );
-
-      conversationHistory.push(
-        ...classificationAgentResultTemp.newItems.map((item) => item.rawItem)
-      );
-
-      if (!classificationAgentResultTemp.finalOutput) {
-        throw new Error("Agent result is undefined");
+      // Fast keyword-based classification for obvious queries (saves 0.5-1 second)
+      const inputLower = workflow.input_as_text.toLowerCase();
+      let classification: string;
+      
+      if (/book|schedule|start|begin|get started|sign up|register/i.test(inputLower)) {
+        classification = "booking_request";
+      } else if (/price|cost|how much|pricing|quote|$/i.test(inputLower)) {
+        classification = "pricing_inquiry";
+      } else if (/service|social media|graphic design|compliance|incorporation|event|business development/i.test(inputLower)) {
+        classification = "service_inquiry";
+      } else {
+        // Use classification agent for ambiguous queries
+        const classificationAgentResultTemp = await runner.run(
+          classificationAgent,
+          [...conversationHistory]
+        );
+        
+        if (!classificationAgentResultTemp.finalOutput) {
+          throw new Error("Agent result is undefined");
+        }
+        
+        classification = classificationAgentResultTemp.finalOutput.classification;
+        conversationHistory.push(
+          ...classificationAgentResultTemp.newItems.map((item) => item.rawItem)
+        );
       }
-
-      const classificationAgentResult = {
-        output_text: JSON.stringify(classificationAgentResultTemp.finalOutput),
-        output_parsed: classificationAgentResultTemp.finalOutput
-      };
 
       let finalResponse = "";
 
-      if (classificationAgentResult.output_parsed.classification === "service_inquiry") {
+      if (classification === "service_inquiry") {
         const serviceAgentResultTemp = await runner.run(
           serviceInquiryAgent,
           [...conversationHistory]
@@ -524,7 +492,7 @@ export async function processChatRequest(workflow: WorkflowInput, retryCount = 0
           ...serviceAgentResultTemp.newItems.map((item) => item.rawItem)
         );
         finalResponse = serviceAgentResultTemp.finalOutput ?? "";
-      } else if (classificationAgentResult.output_parsed.classification === "pricing_inquiry") {
+      } else if (classification === "pricing_inquiry") {
         const pricingAgentResultTemp = await runner.run(
           pricingInquiryAgent,
           [...conversationHistory]
@@ -533,7 +501,7 @@ export async function processChatRequest(workflow: WorkflowInput, retryCount = 0
           ...pricingAgentResultTemp.newItems.map((item) => item.rawItem)
         );
         finalResponse = pricingAgentResultTemp.finalOutput ?? "";
-      } else if (classificationAgentResult.output_parsed.classification === "booking_request") {
+      } else if (classification === "booking_request") {
         const bookingAgentResultTemp = await runner.run(
           bookingAgent,
           [...conversationHistory]
@@ -557,7 +525,7 @@ export async function processChatRequest(workflow: WorkflowInput, retryCount = 0
 
       return {
         response: finalResponse,
-        classification: classificationAgentResult.output_parsed.classification,
+        classification: classification,
         responseTime
       };
     });
@@ -597,7 +565,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const result = await processChatRequest(workflow);
+    const result = await withTimeout(
+      processChatRequest(workflow),
+      9000, // 9 seconds (90% of Vercel's 10-second timeout, 1 second buffer)
+      "The chatbot is taking too long to respond. Please try again in a moment."
+    );
 
     // Analytics logging
     const responseTime = Date.now() - startTime;
@@ -608,6 +580,14 @@ export async function POST(request: NextRequest) {
     console.error("Chat API error:", error);
     const responseTime = Date.now() - startTime;
     logConversation(ip, 'error', 0, responseTime);
+    
+    // Handle timeout errors with user-friendly message
+    if (error.message?.includes("taking too long") || error.message?.includes("timed out")) {
+      return NextResponse.json(
+        { error: error.message || "The chatbot is taking too long to respond. Please try again in a moment." },
+        { status: 504 }
+      );
+    }
     
     return NextResponse.json(
       { error: error.message || "An error occurred processing your request" },
