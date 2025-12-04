@@ -362,17 +362,44 @@ ${knowledgeBase}`,
   }
 });
 
-// Enhanced Information Agent with full knowledge base
-const informationAgent = new Agent({
-  name: "Information agent",
-  instructions: `Answer questions about Impact Business Solutions. Be concise and friendly. Use markdown. End with: Contact WhatsApp +592 679 2338.
+// Unified Agent - handles all query types (service, pricing, booking, information)
+// This eliminates the need for classification, reducing from 2 API calls to 1
+const unifiedAgent = new Agent({
+  name: "Unified Agent",
+  instructions: `You are a helpful assistant for Impact Business Solutions. Answer all types of questions: services, pricing, booking, or general information. Be concise but informative.
+
+**Formatting Guidelines:**
+- Use **bold** for important information (prices, key features, contact info)
+- Use bullet points (-) for lists of features, services, or benefits
+- Use numbered lists (1.) for steps or processes
+- Use tables for pricing comparisons when showing multiple packages
+- Use ## for section headings when organizing information
+- Use \`code\` formatting for specific terms or package names
+- Keep paragraphs short (2-3 sentences max)
+
+**Response Structure:**
+1. Brief answer to the question
+2. Relevant details (pricing, features, benefits) in organized format
+3. Clear call-to-action: **Contact us on WhatsApp: +592 679 2338**
+
+**For Pricing Queries:**
+- Use the calculateQuote tool for multiple services
+- Present pricing in tables or clear lists
+- Always mention prices are in Guyanese Dollars (GYD)
+
+**For Service Queries:**
+- Use getServiceDetails tool for specific service information
+- Highlight key features and benefits
+- Include relevant pricing when available
 
 ${knowledgeBase}`,
   model: "gpt-4o-mini",
+  tools: [getServiceDetails, calculateQuote],
   modelSettings: {
     temperature: 0.3, // Lower for faster responses
     topP: 0.7, // Lower for faster token selection
-    maxTokens: 192, // Further reduced for faster generation
+    maxTokens: 256, // Increased slightly for better formatted responses
+    parallelToolCalls: true,
     store: true
   }
 });
@@ -454,10 +481,18 @@ export async function processChatRequest(workflow: WorkflowInput, retryCount = 0
         }
       }
 
-      // Fast keyword-based classification for obvious queries (saves 0.5-1 second)
+      // Use unified agent - eliminates classification step (saves 1-2 seconds)
+      // Single API call instead of classification + specialized agent
+      const agentResult = await runner.run(
+        unifiedAgent,
+        [...conversationHistory]
+      );
+      
+      const finalResponse = agentResult.finalOutput ?? "";
+      
+      // Simple classification for analytics (doesn't affect response time)
       const inputLower = workflow.input_as_text.toLowerCase();
       let classification: string;
-      
       if (/book|schedule|start|begin|get started|sign up|register/i.test(inputLower)) {
         classification = "booking_request";
       } else if (/price|cost|how much|pricing|quote|$/i.test(inputLower)) {
@@ -465,60 +500,7 @@ export async function processChatRequest(workflow: WorkflowInput, retryCount = 0
       } else if (/service|social media|graphic design|compliance|incorporation|event|business development/i.test(inputLower)) {
         classification = "service_inquiry";
       } else {
-        // Use classification agent for ambiguous queries
-        const classificationAgentResultTemp = await runner.run(
-          classificationAgent,
-          [...conversationHistory]
-        );
-        
-        if (!classificationAgentResultTemp.finalOutput) {
-          throw new Error("Agent result is undefined");
-        }
-        
-        classification = classificationAgentResultTemp.finalOutput.classification;
-        conversationHistory.push(
-          ...classificationAgentResultTemp.newItems.map((item) => item.rawItem)
-        );
-      }
-
-      let finalResponse = "";
-
-      if (classification === "service_inquiry") {
-        const serviceAgentResultTemp = await runner.run(
-          serviceInquiryAgent,
-          [...conversationHistory]
-        );
-        conversationHistory.push(
-          ...serviceAgentResultTemp.newItems.map((item) => item.rawItem)
-        );
-        finalResponse = serviceAgentResultTemp.finalOutput ?? "";
-      } else if (classification === "pricing_inquiry") {
-        const pricingAgentResultTemp = await runner.run(
-          pricingInquiryAgent,
-          [...conversationHistory]
-        );
-        conversationHistory.push(
-          ...pricingAgentResultTemp.newItems.map((item) => item.rawItem)
-        );
-        finalResponse = pricingAgentResultTemp.finalOutput ?? "";
-      } else if (classification === "booking_request") {
-        const bookingAgentResultTemp = await runner.run(
-          bookingAgent,
-          [...conversationHistory]
-        );
-        conversationHistory.push(
-          ...bookingAgentResultTemp.newItems.map((item) => item.rawItem)
-        );
-        finalResponse = bookingAgentResultTemp.finalOutput ?? "";
-      } else {
-        const informationAgentResultTemp = await runner.run(
-          informationAgent,
-          [...conversationHistory]
-        );
-        conversationHistory.push(
-          ...informationAgentResultTemp.newItems.map((item) => item.rawItem)
-        );
-        finalResponse = informationAgentResultTemp.finalOutput ?? "";
+        classification = "get_information";
       }
 
       const responseTime = Date.now() - startTime;
