@@ -298,8 +298,8 @@ import { Footer } from './components/Footer';
 
 ### Color Palette
 ```css
---impact-navy: #1e3a5f
---impact-orange: #e67e22
+--impact-navy: #00072D
+--impact-orange: #FF5C00
 ```
 
 ### Custom Animations

@@ -86,7 +86,7 @@ export function FAQ() {
             href="https://wa.me/5926792338"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-impact-orange text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            className="inline-block bg-impact-orange text-white px-8 py-3 rounded-full font-semibold hover:bg-[#E65000] transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
           >
             Contact Us
           </a>

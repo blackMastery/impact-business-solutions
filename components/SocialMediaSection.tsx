@@ -101,7 +101,7 @@ export function SocialMediaSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-impact-navy via-blue-900 to-impact-navy text-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-impact-navy via-[#0A2472] to-impact-navy text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-impact-orange rounded-full blur-3xl"></div>
@@ -203,7 +203,7 @@ export function SocialMediaSection() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <a href="https://wa.me/5926792338" target="_blank" rel="noopener noreferrer" className="bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center space-x-2">
+          <a href="https://wa.me/5926792338" target="_blank" rel="noopener noreferrer" className="bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-[#E65000] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center space-x-2">
             <span>Start Growing Your Social Presence</span>
             <TrendingUp className="w-5 h-5" />
           </a>

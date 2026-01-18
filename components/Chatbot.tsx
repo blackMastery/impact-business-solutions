@@ -157,7 +157,7 @@ export function Chatbot() {
         className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 ${
           isOpen
             ? 'bg-red-500 hover:bg-red-600'
-            : 'bg-[#1e3a5f] hover:bg-[#1e3a8a]'
+            : 'bg-[#00072D] hover:bg-[#0A2472]'
         } text-white`}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
@@ -172,7 +172,7 @@ export function Chatbot() {
       {isOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-[90vw] sm:w-96 h-[600px] bg-white rounded-lg shadow-2xl flex flex-col border border-gray-200">
           {/* Header */}
-          <div className="bg-[#1e3a5f] text-white p-4 rounded-t-lg flex items-center justify-between">
+          <div className="bg-[#00072D] text-white p-4 rounded-t-lg flex items-center justify-between">
             <div>
               <h3 className="font-semibold text-lg">Impact Business Solutions</h3>
               <p className="text-xs text-gray-200">We're here to help!</p>
@@ -197,7 +197,7 @@ export function Chatbot() {
                       key={index}
                       onClick={() => handleSuggestionClick(question)}
                       disabled={isLoading}
-                      className="text-xs px-3 py-1.5 bg-white border border-gray-200 hover:bg-gray-50 hover:border-[#1e3a5f] rounded-full text-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="text-xs px-3 py-1.5 bg-white border border-gray-200 hover:bg-gray-50 hover:border-[#00072D] rounded-full text-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {question}
                     </button>
@@ -213,12 +213,12 @@ export function Chatbot() {
                 <div
                   className={`max-w-[80%] rounded-lg px-4 py-2 ${
                     message.role === 'user'
-                      ? 'bg-[#1e3a5f] text-white'
+                      ? 'bg-[#00072D] text-white'
                       : 'bg-white text-gray-800 border border-gray-200'
                   }`}
                 >
                   {message.role === 'assistant' ? (
-                    <div className="text-sm prose prose-sm max-w-none prose-headings:text-gray-800 prose-p:text-gray-800 prose-p:my-1 prose-strong:text-gray-900 prose-strong:font-semibold prose-ul:my-2 prose-ol:my-2 prose-li:my-1 prose-code:text-[#1e3a5f] prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs prose-pre:bg-gray-100 prose-pre:border prose-pre:border-gray-200 prose-pre:rounded prose-pre:p-2 prose-pre:overflow-x-auto prose-a:text-[#1e3a5f] prose-a:underline hover:prose-a:text-[#1e3a8a] prose-blockquote:border-l-4 prose-blockquote:border-gray-300 prose-blockquote:pl-4 prose-blockquote:italic prose-table:border-collapse prose-table:border prose-table:border-gray-300 prose-th:bg-gray-100 prose-th:border prose-th:border-gray-300 prose-th:p-2 prose-td:border prose-td:border-gray-300 prose-td:p-2">
+                    <div className="text-sm prose prose-sm max-w-none prose-headings:text-gray-800 prose-p:text-gray-800 prose-p:my-1 prose-strong:text-gray-900 prose-strong:font-semibold prose-ul:my-2 prose-ol:my-2 prose-li:my-1 prose-code:text-[#00072D] prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs prose-pre:bg-gray-100 prose-pre:border prose-pre:border-gray-200 prose-pre:rounded prose-pre:p-2 prose-pre:overflow-x-auto prose-a:text-[#00072D] prose-a:underline hover:prose-a:text-[#0A2472] prose-blockquote:border-l-4 prose-blockquote:border-gray-300 prose-blockquote:pl-4 prose-blockquote:italic prose-table:border-collapse prose-table:border prose-table:border-gray-300 prose-th:bg-gray-100 prose-th:border prose-th:border-gray-300 prose-th:p-2 prose-td:border prose-td:border-gray-300 prose-td:p-2">
                       <ReactMarkdown remarkPlugins={[remarkGfm]}>
                         {message.content}
                       </ReactMarkdown>
@@ -255,13 +255,13 @@ export function Chatbot() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type your message..."
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00072D] focus:border-transparent"
                 disabled={isLoading}
               />
               <button
                 onClick={() => sendMessage()}
                 disabled={!input.trim() || isLoading}
-                className="bg-[#1e3a5f] text-white p-2 rounded-lg hover:bg-[#1e3a8a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-[#00072D] text-white p-2 rounded-lg hover:bg-[#0A2472] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Send message"
               >
                 <Send className="w-5 h-5" />
@@ -273,7 +273,7 @@ export function Chatbot() {
                 href="https://wa.me/5926792338"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#1e3a5f] hover:underline"
+                className="text-[#00072D] hover:underline"
               >
                 Contact us on WhatsApp
               </a>

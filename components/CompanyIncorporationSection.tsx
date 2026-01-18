@@ -75,7 +75,7 @@ export function CompanyIncorporationSection() {
                 href="https://wa.me/5926792338"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+                className="inline-flex items-center space-x-2 bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-[#E65000] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
               >
                 <span>Get Started Today</span>
                 <FileCheck className="w-5 h-5" />

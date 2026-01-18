@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-impact-navy via-blue-900 to-impact-navy"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-impact-navy via-[#0A2472] to-impact-navy"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -45,7 +45,7 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-in-up delay-300">
-              <a href="https://wa.me/5926792338" target="_blank" rel="noopener noreferrer" className="group bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-2">
+              <a href="https://wa.me/5926792338" target="_blank" rel="noopener noreferrer" className="group bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-[#E65000] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-2">
                 <span>Get Started</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -103,8 +103,8 @@ export function Hero() {
               {/* Central Graphic - Growth & Impact Theme */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div className="relative">
-                  <div className="w-64 h-64 bg-gradient-to-br from-impact-orange to-orange-600 rounded-3xl transform rotate-6 animate-expand-impact"></div>
-                  <div className="absolute inset-0 w-64 h-64 bg-gradient-to-br from-blue-600 to-impact-navy rounded-3xl transform -rotate-6 animate-contract-impact"></div>
+                  <div className="w-64 h-64 bg-gradient-to-br from-impact-orange to-[#E65000] rounded-3xl transform rotate-6 animate-expand-impact"></div>
+                  <div className="absolute inset-0 w-64 h-64 bg-gradient-to-br from-[#0A2472] to-impact-navy rounded-3xl transform -rotate-6 animate-contract-impact"></div>
                 </div>
               </div>
             </div>

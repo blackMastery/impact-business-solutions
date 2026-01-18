@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     },
   },
   viewport: 'width=device-width, initial-scale=1',
-  themeColor: '#1e3a8a',
+  themeColor: '#0A2472',
   category: 'business',
   icons: {
     icon: '/white-logo.png',

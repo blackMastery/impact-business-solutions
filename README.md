@@ -4,7 +4,7 @@ A modern, animated landing page built with Next.js, React, TypeScript, and Tailw
 
 ## 🎨 Features
 
-- **Modern Design**: Clean, professional design with the company's brand colors (Navy Blue #1e3a5f and Orange #e67e22)
+- **Modern Design**: Clean, professional design with the company's brand colors (Navy Blue #00072D and Neon Orange #FF5C00)
 - **Fully Responsive**: Mobile-first design that works on all devices
 - **Smooth Animations**: CSS animations and transitions for enhanced user experience
 - **Reusable Components**: Modular React components that can be easily customized
@@ -114,8 +114,8 @@ impact-landing/
 The primary colors are defined in `tailwind.config.ts`:
 ```typescript
 colors: {
-  'impact-navy': '#1e3a5f',
-  'impact-orange': '#e67e22',
+  'impact-navy': '#00072D',
+  'impact-orange': '#FF5C00',
 }
 ```
 

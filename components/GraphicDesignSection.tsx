@@ -89,7 +89,7 @@ export function GraphicDesignSection() {
 
             {/* Center Design Element */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10">
-              <div className="w-48 h-48 bg-gradient-to-br from-impact-orange to-orange-600 rounded-full opacity-20 animate-expand-impact"></div>
+              <div className="w-48 h-48 bg-gradient-to-br from-impact-orange to-[#E65000] rounded-full opacity-20 animate-expand-impact"></div>
             </div>
           </div>
 
@@ -150,7 +150,7 @@ export function GraphicDesignSection() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <a href="https://wa.me/5926792338" target="_blank" rel="noopener noreferrer" className="bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center space-x-2">
+          <a href="https://wa.me/5926792338" target="_blank" rel="noopener noreferrer" className="bg-impact-orange text-white px-8 py-4 rounded-full font-semibold hover:bg-[#E65000] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center space-x-2">
             <span>Start Your Brand Journey</span>
             <Sparkles className="w-5 h-5" />
           </a>

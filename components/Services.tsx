@@ -127,7 +127,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       )}
 
       {/* Hover Effect Line */}
-      <div className="mt-6 h-1 w-0 group-hover:w-full bg-gradient-to-r from-impact-orange to-orange-600 transition-all duration-500 rounded-full"></div>
+      <div className="mt-6 h-1 w-0 group-hover:w-full bg-gradient-to-r from-impact-orange to-[#E65000] transition-all duration-500 rounded-full"></div>
     </div>
   );
 }

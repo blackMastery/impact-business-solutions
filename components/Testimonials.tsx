@@ -96,7 +96,7 @@ export function Testimonials() {
 
             {/* Author Info */}
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-impact-navy to-blue-900 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
+              <div className="w-16 h-16 bg-gradient-to-br from-impact-navy to-[#0A2472] rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
                 {testimonials[currentIndex].name.charAt(0)}
               </div>
               <h4 className="text-xl font-bold text-impact-navy">

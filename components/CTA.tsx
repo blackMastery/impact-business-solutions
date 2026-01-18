@@ -69,7 +69,7 @@ export function CTA() {
             </div>
 
             {/* Trust Indicators */}
-            <div className="bg-gradient-to-br from-impact-navy to-blue-900 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-br from-impact-navy to-[#0A2472] rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">Why Choose Impact?</h3>
               <ul className="space-y-3">
                 <li className="flex items-center space-x-3">

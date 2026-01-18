@@ -44,7 +44,7 @@ export function Stats() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-impact-navy via-blue-900 to-impact-navy text-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-impact-navy via-[#0A2472] to-impact-navy text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full" style={{

@@ -38,11 +38,11 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-impact-orange to-orange-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-impact-orange to-orange-500;
   }
 
   .bg-gradient-impact {
-    @apply bg-gradient-to-br from-impact-navy via-blue-900 to-impact-navy;
+    @apply bg-gradient-to-br from-impact-navy via-[#0A2472] to-impact-navy;
   }
 }
 
@@ -56,28 +56,28 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e67e22;
+  background: #FF5C00;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d35400;
+  background: #E65000;
 }
 
 /* Selection */
 ::selection {
-  background-color: #e67e22;
+  background-color: #FF5C00;
   color: white;
 }
 
 ::-moz-selection {
-  background-color: #e67e22;
+  background-color: #FF5C00;
   color: white;
 }
 
 /* Focus visible for accessibility */
 *:focus-visible {
-  outline: 2px solid #e67e22;
+  outline: 2px solid #FF5C00;
   outline-offset: 2px;
 }
 
@@ -100,11 +100,11 @@
 @keyframes success-pulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 10px 25px rgba(230, 126, 34, 0.2);
+    box-shadow: 0 10px 25px rgba(255, 92, 0, 0.2);
   }
   50% {
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(230, 126, 34, 0.3);
+    box-shadow: 0 20px 40px rgba(255, 92, 0, 0.3);
   }
 }
 
@@ -248,7 +248,7 @@
 }
 
 .chatbot-markdown code {
-  @apply bg-gray-100 text-[#1e3a5f] px-1.5 py-0.5 rounded text-xs font-mono;
+  @apply bg-gray-100 text-[#00072D] px-1.5 py-0.5 rounded text-xs font-mono;
 }
 
 .chatbot-markdown pre {
@@ -260,7 +260,7 @@
 }
 
 .chatbot-markdown a {
-  @apply text-[#1e3a5f] underline hover:text-[#1e3a8a];
+  @apply text-[#00072D] underline hover:text-[#0A2472];
 }
 
 .chatbot-markdown blockquote {

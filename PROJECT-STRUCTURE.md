@@ -40,8 +40,8 @@ impact-landing/
 
 ### Color Palette
 ```css
-Primary Navy:   #1e3a5f (impact-navy)
-Accent Orange:  #e67e22 (impact-orange)
+Primary Navy:   #00072D (impact-navy)
+Accent Orange:  #FF5C00 (impact-orange)
 White:          #ffffff
 Gray Scale:     Tailwind default grays
 ```
