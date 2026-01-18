@@ -45,7 +45,7 @@ function getCondensedKnowledgeBase(): string {
 **Services:**
 - Social Media Management: Standard $35,000, Premium $50,000, Executive $75,000
 - Graphic Design & Branding
-- Compliance: GRA $15,000, NIS $15,000, Business Registration $10,000, Company Registration $120,000
+- Compliance: GRA $15,000, NIS $15,000, Business Registration $10,000, Company incorporation$260,000
 - Company Incorporation: $260,000
 - Event Management
 - Business Development
@@ -91,7 +91,7 @@ const getServiceDetails = tool({
           { name: "GRA Compliance", price: 15000 },
           { name: "NIS Compliance", price: 15000 },
           { name: "Business Registration", price: 10000 },
-          { name: "Company Registration", price: 120000 }
+          { name: "Company Incorporation", price: 120000 }
         ],
         description: "Ensure your business meets all legal requirements."
       },
@@ -109,7 +109,7 @@ const getServiceDetails = tool({
         description: "Strategic business growth services."
       },
       administrative_support: {
-        services: ["Business/Company Registration", "Compliance Services", "Document Preparation", "Business Plans & Proposal Writing"],
+        services: ["Business/Company Incorporation", "Compliance Services", "Document Preparation", "Business Plans & Proposal Writing"],
         description: "Comprehensive business registration and compliance services."
       },
       strategic_consulting: {

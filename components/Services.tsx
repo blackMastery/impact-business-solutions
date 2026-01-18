@@ -19,7 +19,7 @@ export function Services() {
       title: 'Administrative Support',
       description: 'Comprehensive business registration and compliance services to keep your business running smoothly.',
       color: 'from-orange-500 to-red-500',
-      items: ['Business/Company Registration', 'Compliance Services', 'Document Preparation', 'Business Plans & Proposal Writing'],
+      items: ['Business/Company Incorporation', 'Compliance Services', 'Document Preparation', 'Business Plans & Proposal Writing'],
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
@@ -47,12 +47,12 @@ export function Services() {
       title: 'Compliance & Registration',
       description: 'GRA and  services to ensure your business meets all legal requirements.',
       color: 'from-green-500 to-emerald-500',
-      items: ['GRA Compliance', 'NIS Compliance', 'Business Registration', 'Company Registration'],
+      items: ['GRA Compliance', 'NIS Compliance', 'Business Registration', 'Company Incorporation'],
       itemPrices: {
         'GRA Compliance': '$15,000',
         'NIS Compliance': '$15,000',
         'Business Registration': '$10,000',
-        'Company Registration': '$260 000',
+        'Company Incorporation': '$260 000',
       },
     },
     {

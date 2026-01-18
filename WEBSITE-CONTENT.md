@@ -97,7 +97,7 @@ Experience a full spectrum of services for administrative, marketing, and manage
 - GRA Compliance - **$15,000**
 - NIS Compliance - **$15,000**
 - Business Registration - **$10,000**
-- Company Registration - **$120,000**
+- Company incorporation- **$120,000**
 
 ### Service 6: Strategic Consulting
 **Description:** Customized strategies and dedicated support for sustained business success.
