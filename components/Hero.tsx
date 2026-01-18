@@ -1,12 +1,33 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export function Hero() {
   const scrollToServices = () => {
     document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Image carousel state
+  const images = [
+    '/work/WhatsApp Image 2026-01-17 at 21.45.53.jpeg',
+    '/work/WhatsApp Image 2026-01-17 at 21.47.38.jpeg',
+  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  // Auto-rotate images with fade effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setFade(true);
+      }, 300); // Wait for fade out before changing image
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
     <section
@@ -103,8 +124,18 @@ export function Hero() {
               {/* Central Graphic - Growth & Impact Theme */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div className="relative">
-                  <div className="w-64 h-64 bg-gradient-to-br from-impact-orange to-[#E65000] rounded-3xl transform rotate-6 animate-expand-impact"></div>
-                  <div className="absolute inset-0 w-64 h-64 bg-gradient-to-br from-[#0A2472] to-impact-navy rounded-3xl transform -rotate-6 animate-contract-impact"></div>
+                  <div className="w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-impact-orange to-[#E65000] rounded-3xl transform rotate-6 animate-expand-impact"></div>
+                  <div className="absolute inset-0 w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-[#0A2472] to-impact-navy rounded-3xl transform -rotate-6 animate-contract-impact overflow-hidden">
+                    {/* Image Carousel - Centered in Blue Square */}
+                    <div className="absolute inset-0 flex items-center justify-center p-3">
+                      <img
+                        src={images[currentImageIndex]}
+                        alt={`Work sample ${currentImageIndex + 1}`}
+                        className="w-full h-full object-cover rounded-2xl transition-opacity duration-500 ease-in-out shadow-lg"
+                        style={{ opacity: fade ? 1 : 0 }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
