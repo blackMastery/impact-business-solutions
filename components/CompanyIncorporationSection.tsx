@@ -62,7 +62,7 @@ export function CompanyIncorporationSection() {
                 </div>
                 <div className="text-center sm:text-right">
                   <div className="text-4xl md:text-5xl font-bold text-impact-orange mb-2">
-                    $260,000
+                    $260 000
                   </div>
                   <p className="text-sm text-gray-500">One-time fee</p>
                 </div>

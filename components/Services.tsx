@@ -52,7 +52,7 @@ export function Services() {
         'GRA Compliance': '$15,000',
         'NIS Compliance': '$15,000',
         'Business Registration': '$10,000',
-        'Company Registration': '$120,000',
+        'Company Registration': '$260 000',
       },
     },
     {
