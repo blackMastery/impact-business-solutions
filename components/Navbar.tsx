@@ -10,6 +10,7 @@ export function Navbar() {
     { label: 'Home', href: '#home' },
     { label: 'Services', href: '#services' },
     { label: 'About', href: '#about' },
+    { label: 'Portfolio', href: '/portfolio' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -18,7 +19,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <a href="#home" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img 
               src="/white-logo.jpeg" 
               alt="IMPACT Business Solutions" 
