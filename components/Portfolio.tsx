@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 type PortfolioItem = {
@@ -169,7 +170,19 @@ const portfolioItems: PortfolioItem[] = [
 type FilterType = 'all' | 'logo' | 'flyer' | 'receipt-book-stamp' | 'business-card';
 
 export function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState<FilterType>('all');
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  
+  // Get initial filter from URL query parameter
+  const getInitialFilter = (): FilterType => {
+    const filterParam = searchParams.get('filter');
+    const validFilters: FilterType[] = ['all', 'logo', 'flyer', 'receipt-book-stamp', 'business-card'];
+    return filterParam && validFilters.includes(filterParam as FilterType) 
+      ? (filterParam as FilterType) 
+      : 'all';
+  };
+
+  const [activeFilter, setActiveFilter] = useState<FilterType>(getInitialFilter());
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
@@ -218,6 +231,32 @@ export function Portfolio() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxOpen, activeFilter]);
 
+  // Update URL when filter changes
+  const handleFilterChange = (filter: FilterType) => {
+    setActiveFilter(filter);
+    const params = new URLSearchParams(searchParams.toString());
+    if (filter === 'all') {
+      params.delete('filter');
+    } else {
+      params.set('filter', filter);
+    }
+    router.push(`/portfolio?${params.toString()}`, { scroll: false });
+  };
+
+  // Sync filter state with URL when searchParams change (e.g., browser back/forward)
+  useEffect(() => {
+    const filterParam = searchParams.get('filter');
+    const validFilters: FilterType[] = ['all', 'logo', 'flyer', 'receipt-book-stamp', 'business-card'];
+    const filterFromUrl: FilterType = filterParam && validFilters.includes(filterParam as FilterType) 
+      ? (filterParam as FilterType) 
+      : 'all';
+    
+    if (filterFromUrl !== activeFilter) {
+      setActiveFilter(filterFromUrl);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
   // Reset lightbox index when filter changes
   useEffect(() => {
     setLightboxIndex(0);
@@ -248,7 +287,7 @@ export function Portfolio() {
         {/* Filter Buttons */}
         <div className="flex justify-center gap-4 mb-12 flex-wrap">
           <button
-            onClick={() => setActiveFilter('all')}
+            onClick={() => handleFilterChange('all')}
             className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
               activeFilter === 'all'
                 ? 'bg-impact-orange text-white shadow-lg'
@@ -258,7 +297,7 @@ export function Portfolio() {
             All
           </button>
           <button
-            onClick={() => setActiveFilter('logo')}
+            onClick={() => handleFilterChange('logo')}
             className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
               activeFilter === 'logo'
                 ? 'bg-impact-orange text-white shadow-lg'
@@ -268,7 +307,7 @@ export function Portfolio() {
             Logos
           </button>
           <button
-            onClick={() => setActiveFilter('flyer')}
+            onClick={() => handleFilterChange('flyer')}
             className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
               activeFilter === 'flyer'
                 ? 'bg-impact-orange text-white shadow-lg'
@@ -278,7 +317,7 @@ export function Portfolio() {
             Flyers
           </button>
           <button
-            onClick={() => setActiveFilter('receipt-book-stamp')}
+            onClick={() => handleFilterChange('receipt-book-stamp')}
             className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
               activeFilter === 'receipt-book-stamp'
                 ? 'bg-impact-orange text-white shadow-lg'
@@ -288,7 +327,7 @@ export function Portfolio() {
             Receipt Books/Stamps
           </button>
           <button
-            onClick={() => setActiveFilter('business-card')}
+            onClick={() => handleFilterChange('business-card')}
             className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
               activeFilter === 'business-card'
                 ? 'bg-impact-orange text-white shadow-lg'
