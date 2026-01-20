@@ -7,11 +7,11 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'Services', href: '#services' },
-    { label: 'About', href: '#about' },
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'About', href: '/about' },
     { label: 'Portfolio', href: '/portfolio' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (

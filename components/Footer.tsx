@@ -8,20 +8,20 @@ export function Footer() {
 
   const footerLinks = {
     company: [
-      { label: 'About Us', href: '#about' },
-      { label: 'Services', href: '#services' },
-      { label: 'Contact', href: '#contact' },
+      { label: 'About Us', href: '/about' },
+      { label: 'Services', href: '/services' },
+      { label: 'Contact', href: '/contact' },
     ],
     services: [
-      { label: 'Administrative Support', href: '#services' },
-      { label: 'Business Development', href: '#services' },
-      { label: 'Digital Marketing', href: '#services' },
-      { label: 'Event Management', href: '#services' },
+      { label: 'Administrative Support', href: '/services' },
+      { label: 'Business Development', href: '/services' },
+      { label: 'Digital Marketing', href: '/services' },
+      { label: 'Event Management', href: '/services' },
     ],
     resources: [
-      { label: 'Our Vision', href: '#about' },
-      { label: 'Our Mission', href: '#about' },
-      { label: 'Contact Us', href: '#contact' },
+      { label: 'Our Vision', href: '/about' },
+      { label: 'Our Mission', href: '/about' },
+      { label: 'Contact Us', href: '/contact' },
     ],
   };
 
@@ -38,7 +38,7 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
             {/* Logo */}
-            <a href="#home" className="flex items-center">
+            <a href="/" className="flex items-center">
               <img 
                 src="/white-logo.png" 
                 alt="IMPACT Business Solutions" 

@@ -1,15 +1,7 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
-import { Services } from '../components/Services';
-import { ComplianceSection } from '../components/ComplianceSection';
-import { CompanyIncorporationSection } from '../components/CompanyIncorporationSection';
-import { SocialMediaSection } from '../components/SocialMediaSection';
-import { GraphicDesignSection } from '../components/GraphicDesignSection';
-import { About } from '../components/About';
-import { Team } from '../components/Team';
 import { Stats } from '../components/Stats';
 import { Testimonials } from '../components/Testimonials';
-import { CTA } from '../components/CTA';
 import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 import { Chatbot } from '../components/Chatbot';
@@ -108,17 +100,8 @@ export default function LandingPage() {
       />
       <Navbar />
       <Hero />
-      <About />
-
-      <Services />
-      <SocialMediaSection />
-      <ComplianceSection />
-      <CompanyIncorporationSection />
-      <GraphicDesignSection />
-      
       <Stats />
       <Testimonials />
-      <CTA />
       <Footer />
       <Chatbot />
     </div>

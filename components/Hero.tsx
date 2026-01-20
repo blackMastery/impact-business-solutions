@@ -1,11 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export function Hero() {
-  const scrollToServices = () => {
-    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+  const router = useRouter();
+  
+  const navigateToServices = () => {
+    router.push('/services');
   };
 
   // Image carousel state
@@ -145,9 +148,9 @@ export function Hero() {
 
       {/* Scroll Indicator */}
       <button
-        onClick={scrollToServices}
+        onClick={navigateToServices}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-20"
-        aria-label="Scroll to services"
+        aria-label="Navigate to services"
       >
         <ChevronDown className="w-8 h-8 text-white" />
       </button>
