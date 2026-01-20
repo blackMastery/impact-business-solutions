@@ -55,6 +55,67 @@ const portfolioItems: PortfolioItem[] = [
     alt: 'Flyer design work sample 5',
     category: 'flyer',
   },
+  // Receipt Books/Stamps
+  {
+    id: 'receipt-1',
+    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.43.41 (1).jpeg',
+    alt: 'Receipt book and stamp design sample 1',
+    category: 'receipt-book-stamp',
+  },
+  {
+    id: 'receipt-2',
+    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.43.41 (2).jpeg',
+    alt: 'Receipt book and stamp design sample 2',
+    category: 'receipt-book-stamp',
+  },
+  {
+    id: 'receipt-3',
+    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.43.41.jpeg',
+    alt: 'Receipt book and stamp design sample 3',
+    category: 'receipt-book-stamp',
+  },
+  {
+    id: 'receipt-4',
+    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.48.07 (1).jpeg',
+    alt: 'Receipt book and stamp design sample 4',
+    category: 'receipt-book-stamp',
+  },
+  {
+    id: 'receipt-5',
+    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.48.07.jpeg',
+    alt: 'Receipt book and stamp design sample 5',
+    category: 'receipt-book-stamp',
+  },
+  {
+    id: 'receipt-6',
+    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.49.59.jpeg',
+    alt: 'Receipt book and stamp design sample 6',
+    category: 'receipt-book-stamp',
+  },
+  {
+    id: 'receipt-7',
+    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.28.02 (1).jpeg',
+    alt: 'Receipt book and stamp design sample 7',
+    category: 'receipt-book-stamp',
+  },
+  {
+    id: 'receipt-8',
+    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.28.02.jpeg',
+    alt: 'Receipt book and stamp design sample 8',
+    category: 'receipt-book-stamp',
+  },
+  {
+    id: 'receipt-9',
+    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.28.03 (1).jpeg',
+    alt: 'Receipt book and stamp design sample 9',
+    category: 'receipt-book-stamp',
+  },
+  {
+    id: 'receipt-10',
+    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.28.03.jpeg',
+    alt: 'Receipt book and stamp design sample 10',
+    category: 'receipt-book-stamp',
+  },
 ];
 
 type FilterType = 'all' | 'logo' | 'flyer' | 'receipt-book-stamp' | 'business-card';
