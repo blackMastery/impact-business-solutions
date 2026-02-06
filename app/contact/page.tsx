@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Us | Impact Business Solutions',
     description: 'Ready to transform your business? Get in touch with our team to discuss your project and discover how we can help you achieve your goals.',
-    url: 'https://impact-business-solutions.vercel.app/contact',
+    url: 'https://www.impact-business-solutions.com/contact',
   },
 };
 

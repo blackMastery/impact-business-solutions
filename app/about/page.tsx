@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Us | Impact Business Solutions',
     description: 'Empowering businesses since 2021. A boutique marketing and business development agency dedicated to fueling business growth through innovation and excellence.',
-    url: 'https://impact-business-solutions.vercel.app/about',
+    url: 'https://www.impact-business-solutions.com/about',
   },
 };
 

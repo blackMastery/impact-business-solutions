@@ -8,7 +8,7 @@ type PortfolioItem = {
   id: string;
   src: string;
   alt: string;
-  category: 'logo' | 'flyer' | 'receipt-book-stamp' | 'business-card';
+  category: 'logo' | 'flyer' | 'business-card';
 };
 
 const portfolioItems: PortfolioItem[] = [
@@ -86,88 +86,9 @@ const portfolioItems: PortfolioItem[] = [
     alt: 'Flyer design work sample 5',
     category: 'flyer',
   },
-  // Receipt Books/Stamps
-  {
-    id: 'receipt-1',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.43.41 (1).jpeg',
-    alt: 'Receipt book and stamp design sample 1',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-2',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.43.41 (2).jpeg',
-    alt: 'Receipt book and stamp design sample 2',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-3',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.43.41.jpeg',
-    alt: 'Receipt book and stamp design sample 3',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-4',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.48.07 (1).jpeg',
-    alt: 'Receipt book and stamp design sample 4',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-5',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.48.07.jpeg',
-    alt: 'Receipt book and stamp design sample 5',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-6',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 12.49.59.jpeg',
-    alt: 'Receipt book and stamp design sample 6',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-7',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.28.02 (1).jpeg',
-    alt: 'Receipt book and stamp design sample 7',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-8',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.28.02.jpeg',
-    alt: 'Receipt book and stamp design sample 8',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-9',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.28.03 (1).jpeg',
-    alt: 'Receipt book and stamp design sample 9',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-10',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.28.03.jpeg',
-    alt: 'Receipt book and stamp design sample 10',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-11',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.33.19 (1).jpeg',
-    alt: 'Receipt book and stamp design sample 11',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-12',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.33.19 (2).jpeg',
-    alt: 'Receipt book and stamp design sample 12',
-    category: 'receipt-book-stamp',
-  },
-  {
-    id: 'receipt-13',
-    src: '/work/Receipts and receipts books/WhatsApp Image 2026-01-20 at 15.33.19.jpeg',
-    alt: 'Receipt book and stamp design sample 13',
-    category: 'receipt-book-stamp',
-  },
 ];
 
-type FilterType = 'all' | 'logo' | 'flyer' | 'receipt-book-stamp' | 'business-card';
+type FilterType = 'all' | 'logo' | 'flyer' | 'business-card';
 
 export function Portfolio() {
   const searchParams = useSearchParams();
@@ -176,7 +97,7 @@ export function Portfolio() {
   // Get initial filter from URL query parameter
   const getInitialFilter = (): FilterType => {
     const filterParam = searchParams.get('filter');
-    const validFilters: FilterType[] = ['all', 'logo', 'flyer', 'receipt-book-stamp', 'business-card'];
+    const validFilters: FilterType[] = ['all', 'logo', 'flyer', 'business-card'];
     return filterParam && validFilters.includes(filterParam as FilterType) 
       ? (filterParam as FilterType) 
       : 'all';
@@ -246,7 +167,7 @@ export function Portfolio() {
   // Sync filter state with URL when searchParams change (e.g., browser back/forward)
   useEffect(() => {
     const filterParam = searchParams.get('filter');
-    const validFilters: FilterType[] = ['all', 'logo', 'flyer', 'receipt-book-stamp', 'business-card'];
+    const validFilters: FilterType[] = ['all', 'logo', 'flyer', 'business-card'];
     const filterFromUrl: FilterType = filterParam && validFilters.includes(filterParam as FilterType) 
       ? (filterParam as FilterType) 
       : 'all';
@@ -280,7 +201,7 @@ export function Portfolio() {
             Portfolio
           </h1>
           <p className="text-xl text-gray-600">
-            Explore our creative solutions and design expertise through our collection of logos, flyers, receipt books, stamps, and business cards.
+            Explore our creative solutions and design expertise through our collection of logos, flyers, and business cards.
           </p>
         </div>
 
@@ -317,16 +238,6 @@ export function Portfolio() {
             Flyers
           </button>
           <button
-            onClick={() => handleFilterChange('receipt-book-stamp')}
-            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-              activeFilter === 'receipt-book-stamp'
-                ? 'bg-impact-orange text-white shadow-lg'
-                : 'bg-white text-impact-navy hover:bg-gray-100'
-            }`}
-          >
-            Receipt Books/Stamps
-          </button>
-          <button
             onClick={() => handleFilterChange('business-card')}
             className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
               activeFilter === 'business-card'
@@ -360,9 +271,7 @@ export function Portfolio() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4 right-4">
                     <span className="text-white font-semibold capitalize">
-                      {item.category === 'receipt-book-stamp' ? 'Receipt Books/Stamps' : 
-                       item.category === 'business-card' ? 'Business Cards' : 
-                       item.category}
+                      {item.category === 'business-card' ? 'Business Cards' : item.category}
                     </span>
                   </div>
                 </div>

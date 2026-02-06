@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Services | Impact Business Solutions',
     description: 'Your one-stop hub for business solutions in Guyana. From digital marketing to compliance services.',
-    url: 'https://impact-business-solutions.vercel.app/services',
+    url: 'https://www.impact-business-solutions.com/services',
   },
 };
 

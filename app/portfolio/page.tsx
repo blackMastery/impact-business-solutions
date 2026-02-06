@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Portfolio | Impact Business Solutions',
     description: 'Explore our portfolio of graphic design work including logos and flyers.',
-    url: 'https://impact-business-solutions.vercel.app/portfolio',
+    url: 'https://www.impact-business-solutions.com/portfolio',
     type: 'website',
     images: [
       {

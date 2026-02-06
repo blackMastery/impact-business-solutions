@@ -12,8 +12,8 @@ export default function LandingPage() {
     '@type': 'Organization',
     name: 'Impact Business Solutions',
     alternateName: 'iMPACT Business Solutions',
-    url: 'https://impact-business-solutions.vercel.app',
-    logo: 'https://impact-business-solutions.vercel.app/white-logo.jpeg',
+    url: 'https://www.impact-business-solutions.com',
+    logo: 'https://www.impact-business-solutions.com/white-logo.jpeg',
     description: 'A boutique marketing and business development agency in Guyana, dedicated to fueling business growth through innovation and excellence.',
     foundingDate: '2021',
     contactPoint: {
@@ -55,9 +55,9 @@ export default function LandingPage() {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'Impact Business Solutions',
-    image: 'https://impact-business-solutions.vercel.app/white-logo.jpeg',
-    '@id': 'https://impact-business-solutions.vercel.app',
-    url: 'https://impact-business-solutions.vercel.app',
+    image: 'https://www.impact-business-solutions.com/white-logo.jpeg',
+    '@id': 'https://www.impact-business-solutions.com',
+    url: 'https://www.impact-business-solutions.com',
     telephone: '+592-679-2338',
     email: 'marketingimpact20@gmail.com',
     address: {

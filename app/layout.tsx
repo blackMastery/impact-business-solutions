@@ -8,20 +8,20 @@ export const metadata: Metadata = {
   authors: [{ name: 'Impact Business Solutions' }],
   creator: 'Impact Business Solutions',
   publisher: 'Impact Business Solutions',
-  metadataBase: new URL('https://impact-business-solutions.vercel.app'),
+  metadataBase: new URL('https://www.impact-business-solutions.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Impact Business Solutions | Marketing & Business Development Agency',
     description: 'Making an Impact, One Solution at a Time. A boutique marketing and business development agency dedicated to fueling business growth through innovation and excellence in Guyana.',
-    url: 'https://impact-business-solutions.vercel.app',
+    url: 'https://www.impact-business-solutions.com',
     siteName: 'Impact Business Solutions',
     locale: 'en_GY',
     type: 'website',
     images: [
       {
-        url: 'https://impact-business-solutions.vercel.app/white-logo.png',
+        url: 'https://www.impact-business-solutions.com/white-logo.png',
         width: 1200,
         height: 630,
         alt: 'Impact Business Solutions - Marketing & Business Development',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Impact Business Solutions | Marketing & Business Development',
     description: 'A boutique marketing and business development agency in Guyana. Making an Impact, One Solution at a Time.',
-    images: ['https://impact-business-solutions.vercel.app/white-logo.png'],
+    images: ['https://www.impact-business-solutions.com/white-logo.png'],
     creator: '@impactbusinesssolutions',
     site: '@impactbusinesssolutions',
   },
