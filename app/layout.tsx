@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-
+import { Analytics } from '@vercel/analytics/react'
 export const metadata: Metadata = {
   title: 'Impact Business Solutions | Marketing & Business Development Agency in Guyana',
   description: 'A boutique marketing and business development agency in Guyana since 2021. We offer administrative support, business development, digital marketing, social media management, graphic design, event management, and strategic consulting services.',
@@ -70,6 +70,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   )
