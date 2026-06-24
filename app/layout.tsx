@@ -5,9 +5,15 @@ export const metadata: Metadata = {
   title: 'Impact Business Solutions | Marketing & Business Development Agency in Guyana',
   description: 'A boutique marketing and business development agency in Guyana since 2021. We offer administrative support, business development, digital marketing, social media management, graphic design, event management, and strategic consulting services.',
   keywords: 'Guyana marketing agency, business development Guyana, digital marketing Guyana, social media management, graphic design, branding, event management, business registration, compliance services, tender completion, HR recruitment, strategic consulting, Impact Business Solutions',
-  authors: [{ name: 'Impact Business Solutions' }],
+  authors: [
+    { name: 'Impact Business Solutions' },
+    { name: 'Kevon Cadogan', url: 'https://kevoncadogan.com' },
+  ],
   creator: 'Impact Business Solutions',
   publisher: 'Impact Business Solutions',
+  other: {
+    'built-by': 'https://kevoncadogan.com',
+  },
   metadataBase: new URL('https://www.impact-business-solutions.com'),
   alternates: {
     canonical: '/',

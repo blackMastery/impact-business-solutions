@@ -141,9 +141,22 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} iMPACT Business Solutions. All rights reserved.
-            </p>
+            <div className="text-center md:text-left space-y-1">
+              <p className="text-gray-400 text-sm">
+                © {currentYear} iMPACT Business Solutions. All rights reserved.
+              </p>
+              <p className="text-gray-500 text-sm">
+                Built by{' '}
+                <a
+                  href="https://kevoncadogan.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-impact-orange transition-colors duration-300"
+                >
+                  kevoncadogan.com
+                </a>
+              </p>
+            </div>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-impact-orange transition-colors duration-300 text-sm">
                 Privacy Policy
